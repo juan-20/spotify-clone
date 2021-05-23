@@ -2,7 +2,7 @@
     margin: 0 !important;
     padding: 0 !important;
 }
-.container {
+.dashboard {
     background: #121212;
     height: 100%;
     &-search {
@@ -29,7 +29,7 @@
     &-body {
         width: 100%;
         &-music {
-            height: 80vh;
+            height: 70vh;
             width: 100%;
             overflow-y: scroll;
             background: #121212;
@@ -58,10 +58,8 @@
         &-player {
             width: 100%;
             background: #1db954;
-            height: 5rem;
-            display: flex;
-            justify-content: center;
             font-size: 32px;
+            margin-bottom: 0px;
         }
     }
     @media only screen and (max-width: 600px) {

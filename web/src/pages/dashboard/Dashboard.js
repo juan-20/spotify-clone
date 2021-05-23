@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node';
 import TrackSearchResults from '../../components/Songs/TrackSearchResults';
+import Player from '../../Player';
 import useAuth from '../../useAuth';
 import './dashboard.scss';
 
@@ -13,7 +14,14 @@ function Dashboard({ code }) {
     const acessToken = useAuth(code)
     const [search, setSearch] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    // pega a musica que clicar
+    const [playingTrack, setPlayingTrack] = useState([]);
     console.log(searchResults);
+
+    function chooseTrack(track) {
+        setPlayingTrack(track)
+        setSearch('');
+    }
 
     // seta o id sempre
     useEffect(() => {
@@ -55,8 +63,8 @@ function Dashboard({ code }) {
     }, [search, acessToken])
 
     return (
-        <div className="container">
-            <div className="container-search">
+        <div className="dashboard">
+            <div className="dashboard-search">
                 <input
                     type="text"
                     placeholder={"Pesquisar Musica/Artistas"}
@@ -65,18 +73,22 @@ function Dashboard({ code }) {
                 </input>
             </div>
 
-            <div className="container-body">
-                <div className="container-body-music">
+            <div className="dashboard-body">
+                <div className="dashboard-body-music">
                     {searchResults.map(track => (
                         <TrackSearchResults
                             track={track}
                             key={track.uri}
+                            chooseTrack={chooseTrack}
                         />
                     ))}
                 </div>
 
-                <div className="container-body-player">
-                    <p>Player aqui em breve</p>
+                <div className="dashboard-body-player">
+                    <Player
+                        acessToken={acessToken}
+                        trackUri={playingTrack?.uri}
+                    ></Player>
                 </div>
             </div>
         </div>

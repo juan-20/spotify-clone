@@ -3,9 +3,14 @@ import './styles.scss';
 
 
 
-export default function TrackSearchResults({ track }) {
+export default function TrackSearchResults({ track, chooseTrack }) {
+
+    function handlePlay() {
+        chooseTrack(track);
+    }
+
     return (
-        <div className="album">
+        <div onClick={handlePlay} className="album">
 
             <div className="album-img">
 
