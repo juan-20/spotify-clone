@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.post('/refresh', (req, res) => {
     const refreshToken = req.body.refreshToken
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'https://c0012a5ad418.ngrok.io',
         clientId: 'f77c043101a3467fa0dd362e55ff1600',
         clientSecret: 'ad189720a65847f395d96bb2a21a89fa',
         refreshToken,
@@ -20,6 +20,7 @@ app.post('/refresh', (req, res) => {
     spotifyApi
         .refreshAccessToken()
         .then(data => {
+            console.log(data);
             res.json({
                 accessToken: data.body.accessToken,
                 expiresIn: data.body.expiresIn,
@@ -37,12 +38,13 @@ app.post('/refresh', (req, res) => {
 app.post('/login', (req, res) => {
     const code = req.body.code
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'https://c0012a5ad418.ngrok.io',
         clientId: 'f77c043101a3467fa0dd362e55ff1600',
         clientSecret: 'ad189720a65847f395d96bb2a21a89fa',
     })
 
     spotifyApi.authorizationCodeGrant(code).then(data => {
+        console.log(data)
         res.json({
             acessToken: data.body.access_token,
             refreshToken: data.body.refresh_token,

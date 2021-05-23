@@ -8,7 +8,7 @@ export default function useAuth(code) {
 
     useEffect(() => {
         // pega a api
-        axios.post("http://localhost:3001/login", {
+        axios.post(" https://d5a6b36fc739.ngrok.io/login", {
             code,
         }).then(res => {
             // console.log(res.data)
@@ -31,7 +31,7 @@ export default function useAuth(code) {
 
 
             // quando os doi mudar ele faz
-            axios.post("http://localhost:3001/refresh", {
+            axios.post(" https://d5a6b36fc739.ngrok.io/refresh", {
                 refreshToken,
             }).then(res => {
                 setAccessToken(res.data.acessToken)
