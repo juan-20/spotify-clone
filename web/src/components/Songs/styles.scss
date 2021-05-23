@@ -1,0 +1,24 @@
+.album {
+    display: flex;
+    &-img {
+        > img {
+            height: 64px;
+            width: 64px;
+        }
+    }
+
+    &-info {
+        margin-left: 15px !important;
+
+        > h1 {
+            color: #f3f3f3;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+        > p {
+            color: #c2c2c2;
+            font-weight: 100;
+        }
+    }
+}

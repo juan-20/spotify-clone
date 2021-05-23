@@ -1,5 +1,7 @@
-import Dashboard from "./Dashboard"
-import Login from "./Login"
+import Dashboard from "../dashboard/Dashboard";
+import Login from "../Login/Login";
+// import './app.scss';
+
 
 const code = new URLSearchParams(window.location.search).get("code")
 
