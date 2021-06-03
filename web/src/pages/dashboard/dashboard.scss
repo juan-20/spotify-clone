@@ -1,6 +1,21 @@
 * {
     margin: 0 !important;
     padding: 0 !important;
+
+    ::placeholder {
+        color: #90949c;
+        text-indent: 1em;
+        font-size: 17px;
+    }
+
+    input {
+        text-indent: 1.3em;
+    }
+
+    input:focus {
+        border: 4px solid #e7f3ff !important;
+        color: #cdd1d5;
+    }
 }
 .dashboard {
     background: #121212;
@@ -63,10 +78,8 @@
         }
     }
     @media only screen and (max-width: 600px) {
-        .container {
+        .dashboard {
             &-search {
-                display: flex;
-                align-items: center;
                 justify-content: center;
                 margin-left: 0rem !important;
                 padding-left: 0rem !important;

@@ -2,6 +2,8 @@
     cursor: pointer;
     display: flex;
     &-img {
+        height: 64px;
+        width: 64px;
         > img {
             height: 64px;
             width: 64px;
@@ -10,16 +12,22 @@
 
     &-info {
         margin-left: 15px !important;
-
+        width: 75%;
         > h1 {
             color: #f3f3f3;
             font-weight: 400;
             font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         > p {
             color: #c2c2c2;
             font-weight: 100;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
